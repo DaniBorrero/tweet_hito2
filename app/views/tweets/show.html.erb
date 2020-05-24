@@ -1,0 +1,28 @@
+<h1 class="my-3">Detalle del Tweet</h1>
+
+<div class="container my-4 shadow p-3 mb-5 bg-white rounded">
+        <div class="row">
+            <div class="col-1 container-fluid my-5">
+                Foto de usuario!                
+                <!--por hacer-->
+            </div>
+            <div class="col container-fluid">
+                <div class="card container my-3" style="width: 50rem;">
+                    <%= image_tag  "#{@tweet.image_url}", class: "card-img-top m-2" %>
+                    <div class="card-body">
+                        <p class="card-text"><%= @tweet.content%></p>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">                                
+                                <a href="#" class="btn btn-primary">Like</a>
+                                <a href="#" class="btn btn-primary">Retweet</a>
+                            </li>
+                            <li> 
+                                <p>Hace: <%=@tweet.created_at.strftime("%Y-%m-%d")%> </p>                                   
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%= link_to  "Voler", tweets_path, class:"btn btn-primary my-5" %>                            

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Twitter</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+    <%= render  "shared/navbar" %>
+
+    <% flash.each do |name, msg|%>
+      <% if name == 'error'%>
+         <% content_tag :div, msg, class: "alert alert-danger" %>
+      <%elsif name == 'notice'%>
+         <% content_tag :div, msg, class: "alert alert-info" %>
+      <%end%>
+    <%end%>
+    <div class="container">
+    <%= yield %>
+    </div>
+    
+</body>
+
+</html>
