@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2020_05_24_204024) do
   create_table "likes", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "tweet_id", null: false
-    t.boolean "active"
+    t.boolean "active", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["tweet_id"], name: "index_likes_on_tweet_id"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2020_05_24_204024) do
   create_table "retweets", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "tweet_id", null: false
-    t.boolean "active"
+    t.boolean "active", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["tweet_id"], name: "index_retweets_on_tweet_id"
