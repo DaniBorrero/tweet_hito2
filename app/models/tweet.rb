@@ -11,6 +11,7 @@
 #  updated_at    :datetime         not null
 #
 class Tweet < ApplicationRecord
+    belongs_to :user
     has_many :likes
     has_many :retweets    
     validates :content, presence: true

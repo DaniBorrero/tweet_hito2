@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  #50 primeros tweets
+  get 'api/new'
+  get 'api/:fecha1/:fecha2', to: 'api#date_between'
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+  
   post 'likes/:tweet_id' , to: 'likes#create', as: 'likes'
   post 'retweets/:tweet_id' , to: 'retweets#create', as: 'retweets'
 

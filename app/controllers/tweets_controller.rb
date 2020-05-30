@@ -1,4 +1,5 @@
-class TweetsController < ApplicationController 
+class TweetsController < ApplicationController   
+
   def index
     @tweets = Tweet.order(:created_at).reverse_order.page params[:page]
     @tweet = Tweet.new
@@ -10,12 +11,13 @@ class TweetsController < ApplicationController
 
   def create
     @tweet = Tweet.new(tweet_params)
-    if @tweet.save
+    @tweet.user = current_user
+    if @tweet.save!
       flash[:notice] = "Fake Tweet creado con exito."      
     else
       flash[:notice] = "Fake Tweet  no pudo ser creado."      
-    end
-    redirect_to :tweets
+    end    
+    redirect_to root_path    
   end
 
   def show    

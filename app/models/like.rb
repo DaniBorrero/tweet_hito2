@@ -20,4 +20,6 @@ class Like < ApplicationRecord
   def down_like
     tweet.update_attributes(total_like: tweet.total_like -=1)
   end
+
+ 
 end

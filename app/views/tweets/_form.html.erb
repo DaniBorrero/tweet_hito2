@@ -1,10 +1,10 @@
+
+
 <%= form_with model: @tweet do |f| %>
     <%= f.label :content, "contenido del tweet"%>
     <%= f.text_area :content%>
     <br>
     <%= f.label :image_url, "url de la imagen"%>
     <%= f.text_field :image_url%>
-    <%= f.submit "Create"%>
+    <%= f.submit "Create"%>    
 <% end %>
-
-
